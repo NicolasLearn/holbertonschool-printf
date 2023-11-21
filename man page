@@ -1,0 +1,40 @@
+                        printf - man page
+
+NAME
+    
+    printf - print formatted
+
+SYNOPSIS
+
+    #include <stdio.h>
+    int printf(const char *format, ...)
+
+DESCRIPTION
+
+    printf is a standard C library function used for formatted output. 
+    It stands for "print formatted" and is designed to display information 
+    on the console or write it to a file in a specific, well-formatted way.
+
+    c
+        the %c format specifier is used to display a character. 
+        When you use %c in the format string, you must provide an additional argument 
+        that represents the value of the character to display.
+
+    s
+        %s: This is a format specifier for a character string.
+        %s format is used to specify where a string should be inserted 
+        into the format string.
+        You can use %s to print the contents of any string, 
+        whether it is a static string or a dynamically allocated dynamic string.
+    
+    %
+        %% is used to display a single percent character ("%"). 
+        %% in printf is a loophole to literally display the percent character, 
+        rather than interpreting it as the start of a format specifier.
+
+    d, i
+        The %d and %i format specifiers are used to display integer values (whole numbers). 
+        These specifiers are interchangeable, meaning that %d and %i can be used 
+        interchangeably to display integer values.
+
+
