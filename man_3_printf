@@ -27,7 +27,7 @@
     @...: The ellipsis represents a variable number of arguments that match format 
     specifiers in the format string. These arguments provide the values to form and print.
     
-*FORMAT OF THE FORMAT STRING*
+## FORMAT OF THE FORMAT STRING 
     The format string is a character string, starting and ending in its initial 
     offset state, if any. The format string consists of zero or more directives:
     ordinary characters (no "%"), which are faithfully copied into the output stream, 
