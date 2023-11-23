@@ -1,49 +1,51 @@
-                        **_printf - man page**
+.\"" _printf man page
 
-**NAME**
+.TH man 3 "23 nov 2023" "1.0" "_printf man page"
+
+.SH NAME
+
+_printf - print formatted
+
+.SH SYNOPSIS
+
+#include "main.h" ||
+int _printf(const char *format, ...)
+
+.SH DESCRIPTION FUNCTION
+
+Printf is a standard C library function used for formatted output.
+It stands for "print formatted" and is designed to display information 
+on the console or write it to a file in a specific, well-formatted way.
+Our function _printf() produce output according to a format as described below.  
+The function _printf() write output to stdout, the standard output stream.
+Our function write the output under the control of a format string that specifies
+how subsequent arguments (or arguments accessed via the variable-length argument
+facilities of stdarg(3)) are converted for output.
+
+.SH DESCRIPTION ARGUMENT
+@format: string that specifies the format of the output. 
+It can contain format specifiers starting with "%" and followed by conversion 
+characters (for example, %d for integers,, %s for strings, etc...).
+@...: The ellipsis represents a variable number of arguments that match format 
+specifiers in the format string. These arguments provide the values to form and print.
     
-    _printf - print formatted
+.SH FORMAT OF THE FORMAT STRING 
+The format string is a character string, starting and ending in its initial 
+offset state, if any. The format string consists of zero or more directives:
+ordinary characters (no "%"), which are faithfully copied into the output stream, 
+and conversion specifications, each resulting in the retrieval of zero or more 
+subsequent arguments. Each conversion specification is introduced by the "%" 
+character and ends with a conversion specifier.
+The syntax of a conversion specification is:
+        -%[conversion specifier]
+The arguments must correspond properly (after type promotion) with the conversion 
+specifier.  By default, the arguments are used in the order given, where each 
+conversion specifier asks for the next  argument (and it is an error if insufficiently 
+many arguments are given)
 
-**SYNOPSIS**
-
-    #include <stdio.h>
-    int _printf(const char *format, ...)
-
-**DESCRIPTION**
-
-    Printf is a standard C library function used for formatted output. 
-    It stands for "print formatted" and is designed to display information 
-    on the console or write it to a file in a specific, well-formatted way.
-    Our function _printf() produce output according to a format as described below.  
-    The function _printf() write output to stdout, the standard output stream.
-    Our function write the output under the control of a format string that specifies
-    how subsequent arguments (or arguments accessed via the variable-length argument 
-    facilities of stdarg(3)) are converted for output.
-
-*ARGUMENT*
-    @format: string that specifies the format of the output. 
-    It can contain format specifiers starting with "%" and followed by conversion 
-    characters (for example, %d for integers,, %s for strings, etc...).
-    @...: The ellipsis represents a variable number of arguments that match format 
-    specifiers in the format string. These arguments provide the values to form and print.
-    
-## FORMAT OF THE FORMAT STRING 
-    The format string is a character string, starting and ending in its initial 
-    offset state, if any. The format string consists of zero or more directives:
-    ordinary characters (no "%"), which are faithfully copied into the output stream, 
-    and conversion specifications, each resulting in the retrieval of zero or more 
-    subsequent arguments. Each conversion specification is introduced by the "%" 
-    character and ends with a conversion specifier.
-    The syntax of a conversion specification is:
-            -%[conversion specifier]
-    The arguments must correspond properly (after type promotion) with the conversion 
-    specifier.  By default, the arguments are used in the order given, where each 
-    conversion specifier asks for the next  argument (and it is an error if insufficiently 
-    many arguments are given)
-
- *Conversion specifiers*
-    A character that specifies the type of conversion to be applied. The conversion 
-    specifiers and their meanings are:
+.SH CONVERSION SPECIFIERS
+A character that specifies the type of conversion to be applied. The conversion 
+specifiers and their meanings are:
     
     c
         The "%c" format specifier, is used to display a only character and specify where 
@@ -79,10 +81,32 @@
        are interchangeable, meaning that "%d" and "%i" can be used interchangeably to 
        display integer values. The "int" argument is converted to signed decimal notation.
 
-**RETURN VALUE**
+.SH RETURN VALUE
 
     Upon successful return, this function return the number of characters printed 
     (excluding the null byte used to end output to  strings).
     If an output error is encountered, a negative value is returned.
 
-**EXAMPLE**
+.SH EXAMPLE
+
+#include "main.h"
+
+int main(void) 
+{
+    // Basic use of _printf 
+    _printf("Hello, world!\n");
+
+    // using _printf with variables
+    int entier = 42;
+    char caractere = 'A';
+
+    _printf("Entier : %d\n", entier);
+    _printf("Caractere : %c\n", caractere);
+    _printf("String : %s\n", "i'm a string");
+    _printf("Percent : %%\n");
+    
+    return 0;
+}
+
+.SH AUTHOR
+	Quoirez Nicolas , De Freitas Enzo in 2023
