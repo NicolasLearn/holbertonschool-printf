@@ -56,8 +56,6 @@ int print_char(va_list current_arg)
 {
 	char current_value = va_arg(current_arg, int);
 
-	if (current_value == 0)
-		return (0);
 	return (write(1, &current_value, 1));
 }
 
@@ -81,7 +79,10 @@ int print_string(va_list current_arg)
 	char *str = va_arg(current_arg, char *);
 
 	if (str == NULL)
-		return (0);
+	{
+		char null[] = "(null)";
+		return (write(1, &null, 6));
+	}
 	len_str = _strlen(str);
 	return (write(1, str, len_str));
 }
