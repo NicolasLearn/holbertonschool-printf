@@ -1,14 +1,13 @@
 #include "main.h"
 
 /**
- * check_symbol - symbol
+ * check_symbol - check if "current_char" matches with one character in array.
  *
- * Description: description
+ * @current_char: value of current_char to compare.
+ * @array_symbol: adress of the array to scan.
  *
- * @current_char: arg
- * @array_symbol: arg
- *
- * Return: return
+ * Return: returns the array element index corresponding to the character
+ * or element index '\0' if no match.
 */
 int check_symbol(char current_char, Format_type array_symbol[])
 {
@@ -26,10 +25,11 @@ int check_symbol(char current_char, Format_type array_symbol[])
 /*---------------------------------------------------------------------------*/
 
 /**
- * _strlen - count the number of character enter in param
- * @s: string to be checked
+ * _strlen - count the number of character enter in param.
  *
- * Return: return the number of character of the string
+ * @s: string to be checked.
+ *
+ * Return: return the number of character of the string.
  */
 int _strlen(char *s)
 {
@@ -44,8 +44,9 @@ int _strlen(char *s)
 /*---------------------------------------------------------------------------*/
 
 /**
- * _putchar - writes the character c to stdout
- * @c: The character to print
+ * _putchar - writes the character "c" to stdout.
+ *
+ * @c: The character to print.
  *
  * Return: On success 1.
  * On error, -1 is returned, and errno is set appropriately.

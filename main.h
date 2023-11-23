@@ -16,10 +16,10 @@
 
 /**
  * struct Format_type - struct for char list and call function
- * adapted at the char
+ * adapted at the char.
  *
- * @letter: char which indicated the format
- * @ptr_func: function pointer to function adapted at the char "type"
+ * @letter: char which indicated the format.
+ * @ptr_func: function pointer to function adapted at the char "letter".
  */
 typedef struct Format_type
 {
