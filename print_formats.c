@@ -1,6 +1,27 @@
 #include "main.h"
 
 /**
+ * print_unknow_symbol - function
+ *
+ * Description: description
+ *
+ * @current_char: arg
+ * @current_arg: arg
+ *
+ * Return: retrun
+*/
+int print_unknow_symbol(char current_char, va_list current_arg)
+{
+	int count = 0;
+
+	count += print_percent(current_arg);
+	count += write(1, &current_char, 1);
+	return (count);
+}
+
+/*---------------------------------------------------------------------------*/
+
+/**
  * print_percent - print the char "%"
  *
  * Description: if the next char of the symbol "%" in the function _printf
@@ -12,10 +33,9 @@
  */
 int print_percent(va_list current_arg)
 {
-	char percent = '%';
 	(void)current_arg;
 
-	return (write(1, &percent, 1));
+	return (_putchar('%'));
 }
 
 /*---------------------------------------------------------------------------*/
