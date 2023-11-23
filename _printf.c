@@ -11,12 +11,13 @@
  */
 int _printf(const char *format, ...)
 {
-	int printed_char = 0, indice_symbol = 0, index = 0;
+	int printed_char = 0, index_specifier = 0, index = 0;
 	char current_char;
 	va_list current_arg;
-	Format_type print_function_choice[] = {
+	Format_type chose_print_format[] = {
 		{'%', print_percent}, {'c', print_char}, {'s', print_string},
-		{'d', print_int}, {'i', print_int}, {'\0', NULL}
+		{'d', print_int}, {'i', print_int},
+		{'\0', NULL}
 	};
 
 	va_start(current_arg, format);
@@ -29,11 +30,11 @@ int _printf(const char *format, ...)
 		{
 			index++;
 			current_char = format[index];
-			indice_symbol = check_symbol(current_char, print_function_choice);
-			if (indice_symbol == 5)
+			index_specifier = check_symbol(current_char, chose_print_format);
+			if (chose_print_format[index_specifier].letter == '\0')
 				printed_char += print_unknow_symbol(current_char, current_arg);
 			else
-				printed_char += print_function_choice[indice_symbol].ptr_func(current_arg);
+				printed_char += chose_print_format[index_specifier].ptr_func(current_arg);
 		}
 		index++;
 	}
