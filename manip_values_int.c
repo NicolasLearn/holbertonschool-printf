@@ -1,10 +1,11 @@
 #include "main.h"
 
 /**
- * _intlen - count the number of figures of the integer enter in param
- * @number: integer to be checked
+ * _intlen - count the number of digits of the integer enter in param.
  *
- * Return: return the number of figures of the integer
+ * @number: integer to be checked.
+ *
+ * Return: return the number of digits of the integer
  * if is a negative number, the sign is counted.
  */
 int _intlen(int number)
@@ -30,16 +31,16 @@ int _intlen(int number)
 
 /**
  * converted_int_to_string - copy each digit of the parameter "number"
- * in the array "str" for can print the value of number
+ * in the array "str" for can print the value of number.
  *
  * Description: this function takes in parameter an 'int' with its lenght, if
  * this value is negative, change its value in positive. Next, takes each
- * digit of this value and copy that in the order inverse of the array. if
+ * digit of this value and copy that in the order inverse of the array. If
  * negative, print the sign '-' at the begining of the array.
  *
- * @number: is the "int" type value to print
- * @str: is the address of the array where we will copy the value of "number"
- * @lenght: is the length of the number of characters of "number"
+ * @number: is the "int" type value to print.
+ * @str: is the address of the array where we will copy the value of "number".
+ * @lenght: is the length of the number of characters of "number".
  */
 void converted_int_to_string(int number, char *str, int lenght)
 {
@@ -54,10 +55,7 @@ void converted_int_to_string(int number, char *str, int lenght)
 	str[i] = '\0';
 	for (--i; number > 0; i--)
 	{
-		if (number == INT_MIN)
-			str[i] = '8';
-		else
-			str[i] = ((number % 10) + '0');
+		str[i] = ((number % 10) + '0');
 		number /= 10;
 	}
 	if (sign == 1)
@@ -67,9 +65,9 @@ void converted_int_to_string(int number, char *str, int lenght)
 /*---------------------------------------------------------------------------*/
 
 /**
- * print_INT_MIN - print the value of INT_MIN
+ * print_INT_MIN - print the value of INT_MIN.
  *
- * Return: number of character printed
+ * Return: number of character printed.
 */
 int print_INT_MIN(void)
 {
@@ -77,5 +75,3 @@ int print_INT_MIN(void)
 
 	return (write(1, &tab, 11));
 }
-
-/*---------------------------------------------------------------------------*/
