@@ -1,25 +1,50 @@
 #include "main.h"
 
 /**
+ * print_unknow_symbol - function
+ *
+ * Description: description
+ *
+ * @current_char: arg
+ * @current_arg: arg
+ *
+ * Return: retrun
+*/
+int print_unknow_symbol(char current_char, va_list current_arg)
+{
+	int count = 0;
+
+	count += print_percent(current_arg);
+	count += write(1, &current_char, 1);
+	return (count);
+}
+
+/*---------------------------------------------------------------------------*/
+
+/**
  * print_percent - print the char "%"
  *
  * Description: if the next char of the symbol "%" in the function _printf
  * is "%", we must print the symbol
  *
+ * @current_arg: unused parameter. Here for used the function in my struct
+ *
  * Return: the number of characters printed
  */
-int print_percent(void)
+int print_percent(va_list current_arg)
 {
-	char percent = '%';
+	(void)current_arg;
 
-	write(1, &percent, 1);
-	return (1);
+	return (_putchar('%'));
 }
+
+/*---------------------------------------------------------------------------*/
 
 /**
  * print_char - print a char got in param
  *
- * Descritpion: if the symbol is "c", we must print value of matching argument,
+ * Descritpion: if the next char of the symbol "%" in the function _printf
+ * is "c", we must print value of matching argument,
  * got with the current_arg enter in parameter.
  *
  * @current_arg: value of parameter, of type "char",
@@ -29,18 +54,20 @@ int print_percent(void)
  */
 int print_char(va_list current_arg)
 {
-	char temp = va_arg(current_arg, int);
+	char current_value = va_arg(current_arg, int);
 
-	if (temp == 0)
+	if (current_value == 0)
 		return (0);
-	write(1, &temp, 1);
-	return (1);
+	return (write(1, &current_value, 1));
 }
+
+/*---------------------------------------------------------------------------*/
 
 /**
  * print_string - print a string got in parameter
  *
- * Description: if the symbol is "s", we must print value of matching argument,
+ * Description: if the next char of the symbol "%" in the function _printf
+ * is "s", we must print value of matching argument,
  * got with the current_arg enter in parameter.
  *
  * @current_arg: value of parameter, of type "string",
@@ -56,15 +83,16 @@ int print_string(va_list current_arg)
 	if (str == NULL)
 		return (0);
 	len_str = _strlen(str);
-	write(1, str, len_str);
-	return (len_str);
+	return (write(1, str, len_str));
 }
+
+/*---------------------------------------------------------------------------*/
 
 /**
  * print_int - value print of an integer got in parameter
  *
- * Description: if the symbol is "d" or "i",
- * we must print value of matching argument,
+ * Description: if the next char of the symbol "%" in the function _printf
+ * is "d" or "i", we must print value of matching argument,
  * got with the current_arg enter in parameter.
  * For print, we must translate value of type "int" in
  * type "char".
@@ -76,10 +104,12 @@ int print_string(va_list current_arg)
  */
 int print_int(va_list current_arg)
 {
-	int len_temp = 0;
-	int temp = va_arg(current_arg, int);
+	char tab_buffer[15];
+	int current_value = va_arg(current_arg, int);
+	int lenght_current_value = _intlen(current_value);
 
-	len_temp = _intlen(temp);
-	write(1, &temp, sizeof(int));
-	return (len_temp);
+	if (current_value == INT_MIN)
+		return (print_INT_MIN());
+	converted_int_to_string(current_value, tab_buffer, lenght_current_value);
+	return (write(1, &tab_buffer, lenght_current_value));
 }
