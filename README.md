@@ -84,6 +84,6 @@ The _printf function in C language returns the total number of characters writte
 
 ## Flowchart
 
-<img src = "flowchart.png"></>
+<img src = "flowchart.png">
 
 
