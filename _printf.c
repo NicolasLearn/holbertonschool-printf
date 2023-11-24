@@ -1,13 +1,26 @@
 #include "main.h"
 
 /**
- * _printf - priint
+ * _printf - Prints a formatted string passed in the "format" parameter,
+ * including the value of the variables specified with the conversion
+ * specifiers, on the final print string.
  *
- * Descritpion: descritpiion
+ * @format: Is the template of the string to print, containing the conversion
+ * specifiers used to indicate and include the parameter values passed in the
+ * final string to print.
  *
- * @format: format
+ * Return: On sucess, return the number of characters printed.
+ * On failed, return -1.
  *
- * Return: return
+ * Description: Prints a formatted string passed in the "format" parameter.
+ * If format is "NULL" or equal to only "%", returns an error.
+ * Otherwise, print each format character.
+ * If the character "%" is found, followed by a valid conversion specifier,
+ * the function replaces "%<conversion_specifier>" with the value of the
+ * variable associated with this specifier.
+ * If no match, prints the "%" character followed by the unknown character.
+ * The function returns (-1) in case of error or the number of
+ * characters printed.
  */
 int _printf(const char *format, ...)
 {
@@ -22,7 +35,10 @@ int _printf(const char *format, ...)
 
 	va_start(current_arg, format);
 	if ((format == NULL) || ((format[0] == '%') && (format[1] == '\0')))
+	{
+		va_end(current_arg);
 		return (-1);
+	}
 	while (format[index] != '\0')
 	{
 		current_char = format[index];
@@ -43,3 +59,4 @@ int _printf(const char *format, ...)
 	va_end(current_arg);
 	return (printed_char);
 }
+
