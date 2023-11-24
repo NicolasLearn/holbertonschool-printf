@@ -22,7 +22,6 @@
  * The function returns (-1) in case of error or the number of
  * characters printed.
  */
-
 int _printf(const char *format, ...)
 {
 	int printed_char = 0, index_specifier = 0, index = 0;
@@ -60,3 +59,4 @@ int _printf(const char *format, ...)
 	va_end(current_arg);
 	return (printed_char);
 }
+
