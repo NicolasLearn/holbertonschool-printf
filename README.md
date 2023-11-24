@@ -1,4 +1,6 @@
-                PROJECT holbertonschool-_printf
+<div align="center">
+  <h1>PROJECT holbertonschool-_printf</h1>
+</div>
 
 ## _printf
 
