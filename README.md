@@ -5,7 +5,7 @@
 Our project is to create the _printf function for these following conversion specifiers: c, s, %, d, i.
 The _printf function in language This is a standard library function which allows you to display formatted data on the console. Its name means "print formatted", which indicates its ability to handle specific formats for different types of data. It typically takes a format string as the first argument, followed by the values to display, depending on the format specifications included in the string.
 
-## description
+## Description
 
 The _printf function is a formatted output function. It is primarily used to display text and other formatted data to the console.
 The basic signature of the _printf function is as follows:
@@ -18,7 +18,7 @@ _printf returns the total number of characters written (including the number of 
 
 The ellipsis (...) indicates that the _printf function accepts a variable number of arguments. These arguments must match the format specifiers in the format string. Argument types must match format specifiers to avoid undefined behavior.
 
-## stage
+## Stage
 
 To use the printf function we created all the structures in a main.h, so the first step is to include the main.h library: #include "main.h"
 
@@ -30,7 +30,7 @@ execution
 ```bash
 ./_printf
 ```
-## restriction
+## Restriction
 
 All our files must end with a new line.
 A README.md file at the root of our project folder is required.
@@ -39,7 +39,7 @@ We are not allowed to use global variables.
 You cannot put more than 5 functions per file.
 Prototypes of all our functions should be included in your header file called main.h
 
-## main function
+## Main
 *CODE*
 ```bash
 #include "main.h"
@@ -76,8 +76,12 @@ String : i'm a string
 Percent : %
 ```
 
-## return function
+## Return
 
 The _printf function in C language returns the total number of characters written to standard output (usually the console). The return value indicates the number of bytes or characters that were displayed, including special characters such as newlines ("\n"). If an error occurs, _printf returns a negative number, and the errno variable is updated to indicate the type of error.
+
+## Flowchart
+
+<img src = "flowchart.png"></>
 
 
