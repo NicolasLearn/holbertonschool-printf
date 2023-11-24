@@ -1,39 +1,47 @@
-PROJECT holbertonschool-_printf
+                PROJECT holbertonschool-_printf
 
-// breve description du projet avec objectif et fonctionnalité principal //
+##_printf
 
-Notre projet est de recrée la fonction _printf pour ces specificateurs de conversion suivant : c, s, %, d, i.
-La fonction _printf en langage C est une fonction de la bibliothèque standard qui permet d'afficher des données formatées sur la console. Son nom signifie "print formatted", ce qui indique sa capacité à gérer des formats spécifiques pour différents types de données. Elle prend en général une chaîne de format en tant que premier argument, suivie par les valeurs à afficher, selon les spécifications de format incluses dans la chaîne.
+Our project is to create the _printf function for these following conversion specifiers: c, s, %, d, i.
+The _printf function in language This is a standard library function which allows you to display formatted data on the console. Its name means "print formatted", which indicates its ability to handle specific formats for different types of data. It typically takes a format string as the first argument, followed by the values to display, depending on the format specifications included in the string.
 
-// decrire _printf //
+##description
 
-La fonction _printf est une fonction de sortie formatée en langage C (et dans d'autres langages inspirés de C). Elle est principalement utilisée pour afficher du texte et d'autres données formatées à la console.
-La signature de base de la fonction _printf est la suivante : 
-int _printf(const char* format, ...); 
+The _printf function is a formatted output function. It is primarily used to display text and other formatted data to the console.
+The basic signature of the _printf function is as follows:
+```bash
+int _printf(const char* format, ...);
+```
+_printf returns the total number of characters written (including the number of bytes used to represent special characters such as newlines), or a negative number on error.
 
-_printf renvoie le nombre total de caractères écrits (y compris le nombre d'octets utilisés pour représenter les caractères spéciaux tels que les sauts de ligne), ou un nombre négatif en cas d'erreur. Si une erreur se produit, la variable errno est également mise à jour pour indiquer le type d'erreur.
+"const char *format" is a format string that specifies how additional arguments should be formatted and displayed. It can contain ordinary characters (which are simply copied to standard output) and format specifiers. Format specifiers typically begin with the "%" character followed by a character that indicates the expected data type. For example, "%d" is used for an integer, %s for a string, %c for a character, etc...
 
-const char *format est une chaîne de format qui spécifie comment les arguments supplémentaires doivent être formatés et affichés. Elle peut contenir des caractères ordinaires (qui sont simplement copiés sur la sortie standard) et des spécificateurs de format. Les spécificateurs de format commencent généralement par le caractère % suivi d'un caractère qui indique le type de données attendu. Par exemple, %d est utilisé pour un entier, %f pour un nombre à virgule flottante, %c pour un caractère, etc.
+The ellipsis (...) indicates that the _printf function accepts a variable number of arguments. These arguments must match the format specifiers in the format string. Argument types must match format specifiers to avoid undefined behavior.
 
-Les points de suspension (...) indiquent que la fonction _printf accepte un nombre variable d'arguments. Ces arguments doivent correspondre aux spécificateurs de format dans la chaîne de format. Les types d'arguments doivent correspondre aux spécificateurs de format pour éviter un comportement indéfini.
+##stage
 
-// decrire les etape et commande necessaire //
+To use the printf function we created all the structures in a main.h, so the first step is to include the main.h library: #include "main.h"
 
-La fonction _printf fait partie de la bibliothèque standard en C, donc la première étape consiste à inclure la bibliothèque stdio.h : #include "main.h"
+compilation
+```bash
+gcc -Wall -Wextra -Werror -pedantic -std=gnu89 -Wno-format *.c -o _printf
+```
+execution
+```bash
+./_printf
+```
+##restriction
 
+All our files must end with a new line.
+A README.md file at the root of our project folder is required.
+Our code should use Betty style. It will be checked using betty-style.pl and betty-doc.pl.
+We are not allowed to use global variables.
+You cannot put more than 5 functions per file.
+Prototypes of all our functions should be included in your header file called main.h
 
-
-
-// dire les restriction //
-
-Tous nos fichiers doivent se terminer par une nouvelle ligne.
-Un fichier README.md, à la racine du dossier de nos projet est obligatoire.
-Notre code doit utiliser le style Betty. Il sera vérifié en utilisant betty-style.pl et betty-doc.pl.
-On n'êtes pas autorisé à utiliser des variables globales.
-On ne peut pas mettre plus de 5 fonctions par fichier.
-Les prototypes de toutes nos fonctions doivent être inclus dans votre fichier d'en-tête appelé main.h
-
-// montrez comment utiliser les fonction principales //
+##main function
+*CODE*
+```bash
 #include "main.h"
 
 int main() 
@@ -44,10 +52,10 @@ int main()
 
 int main() 
 {
-    // Utilisation basique de _printf
+    // Basic use of _printf
     _printf("Hello, world!\n");
 
-    // Utilisation de _printf avec des variables
+    // Using _printf with variables
     int entier = 42;
     char caractere = 'A';
 
@@ -58,13 +66,18 @@ int main()
     
     return 0;
 }
+```
+*OUTPUT*
+```bash
+Hello, world!
+Entier : 42
+Caractère : A
+String : i'm a string
+Percent : %
+```
 
-// decrire chaque parametre de la fonction _printf //
+##return function
 
-
-
-// expliquer ce que retourne la fonction _printf et comment //
-
-La fonction _printf en langage C retourne le nombre total de caractères écrits sur la sortie standard (généralement la console). La valeur de retour indique le nombre d'octets ou de caractères qui ont été affichés, y compris les caractères spéciaux tels que les sauts de ligne ("\n"). Si une erreur survient, _printf retourne un nombre négatif, et la variable errno est mise à jour pour indiquer le type d'erreur.
+The _printf function in C language returns the total number of characters written to standard output (usually the console). The return value indicates the number of bytes or characters that were displayed, including special characters such as newlines ("\n"). If an error occurs, _printf returns a negative number, and the errno variable is updated to indicate the type of error.
 
 
